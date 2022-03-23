@@ -25,16 +25,16 @@ has_many:tredes
 |user             | references | null:false, foreign_key:true |
 |name             | string     | null:false                   |
 |price            | integer    | null:false                   |
-|description_id   | text       | null:false                   |
-|category_id      | integer    | null:false                   |
-|prefectures_id   | integer    | null:false                   |
-|delivery_cost_id | integer    | null:false                   |
-|derivery_dete_id | integer    | null:false                   |
+|description      | text       | null:false                   |
+|category         | integer    | null:false                   |
+|prefectures      | integer    | null:false                   |
+|delivery_cost    | integer    | null:false                   |
+|derivery_dete    | integer    | null:false                   |
 
 ### Association
 
 belongs_to :user
-has_one :tredes
+has_one :trede
 
 ## Buyersテーブル
 
@@ -43,14 +43,14 @@ has_one :tredes
 |buyer         | references | null:false, foreign_key:true |
 |postal_code   | string     | null:false                   |
 |prefecture_id | integer    | null:false                   |
-|city_id       | string     | null:false                   |
-|address_id    | string     | null:false                   |
-|building_id   | string     |                              |
+|city          | string     | null:false                   |
+|address       | string     | null:false                   |
+|building      | string     |                              |
 |phone_naumber | string     | null:false                   |
 
 ### Association
 
-belongs_to :tredes
+belongs_to :trede
 
 ## Tredesテーブル
 
