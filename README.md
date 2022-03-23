@@ -26,10 +26,11 @@ has_many:tredes
 |name             | string     | null:false                   |
 |price            | integer    | null:false                   |
 |description      | text       | null:false                   |
-|category         | integer    | null:false                   |
-|prefectures      | integer    | null:false                   |
-|delivery_cost    | integer    | null:false                   |
-|derivery_dete    | integer    | null:false                   |
+|category_id      | integer    | null:false                   |
+|condition_id     | integer    | null:false                   |
+|prefectures_id   | integer    | null:false                   |
+|delivery_cost_id | integer    | null:false                   |
+|derivery_dete_id | integer    | null:false                   |
 
 ### Association
 
