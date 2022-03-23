@@ -28,20 +28,20 @@ has_many:tredes
 |description      | text       | null:false                   |
 |category_id      | integer    | null:false                   |
 |condition_id     | integer    | null:false                   |
-|prefectures_id   | integer    | null:false                   |
+|prefecture_id    | integer    | null:false                   |
 |delivery_cost_id | integer    | null:false                   |
 |derivery_dete_id | integer    | null:false                   |
 
 ### Association
 
 belongs_to :user
-has_one :trede
+has_one :trade
 
 ## Buyersテーブル
 
 |Column        |Type        |Options                       |
 |--------------|------------|------------------------------|
-|buyer         | references | null:false, foreign_key:true |
+|trade         | references | null:false, foreign_key:true |
 |postal_code   | string     | null:false                   |
 |prefecture_id | integer    | null:false                   |
 |city          | string     | null:false                   |
@@ -51,9 +51,9 @@ has_one :trede
 
 ### Association
 
-belongs_to :trede
+belongs_to :trade
 
-## Tredesテーブル
+## Tradesテーブル
 
 |Column |Type        |Options                       |
 |-------|------------|------------------------------|
