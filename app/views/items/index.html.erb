@@ -134,7 +134,6 @@
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
-          <%# 商品が売れていればsold outを表示しましょう %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
@@ -156,8 +155,6 @@
       <% end %>
       </li>
 
-      <%# 商品がない場合は以下のダミー商品が表示されるようにしましょう %>
-      <%# 商品がある場合は表示されないようにしましょう %>
       <% if @items == [] %>
       <li class='list'>
         <%= link_to '#' do %>
