@@ -30,7 +30,7 @@ has_many:trades
 |condition_id     | integer    | null:false                   |
 |prefecture_id    | integer    | null:false                   |
 |delivery_cost_id | integer    | null:false                   |
-|derivery_dete_id | integer    | null:false                   |
+|delivery_date_id | integer    | null:false                   |
 
 ### Association
 
