@@ -1,6 +1,5 @@
 class Item < ApplicationRecord
   belongs_to :user
-  has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
@@ -8,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :delivery_cost
   belongs_to :delivery_date
+  has_one_attached :image
 
   with_options presence: true do
     validates :user
@@ -19,6 +19,7 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :delivery_cost_id
     validates :delivery_date_id
+    validates :image
   end
 
   with_options numericality: { other_than: 1 } do

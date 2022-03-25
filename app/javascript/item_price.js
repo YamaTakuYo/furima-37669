@@ -1,4 +1,4 @@
-window.addEventListener('keyup', () => {
+window.addEventListener('load', () => {
 
   const itemPrice = document.getElementById("item-price");
   itemPrice.addEventListener('input', function(){
