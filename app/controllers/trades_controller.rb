@@ -21,7 +21,7 @@ class TradesController < ApplicationController
   private
 
   def trade_params
-    params.require(:trade_buyer).permit(:postal_code, :prefecture_id, :city, :address, :building, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id])
+    params.require(:buyer_destination).permit(:postal_code, :prefecture_id, :city, :address, :building, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
 
   def set_item
@@ -30,5 +30,14 @@ class TradesController < ApplicationController
 
   def move_to_index
     redirect_to root_path if current_user.id == @item.user_id || @item.trade.present?
+  end
+
+  def pay_item
+    Payjp.api_key = "sk_test_5aa229067d17d928be08df42"
+    Payjp::Charge.create(
+      amount: @item.price,
+      card: trade_params[:token],
+      currency: 'jpy'
+    )
   end
 end
