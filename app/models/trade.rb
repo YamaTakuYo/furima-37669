@@ -1,5 +1,5 @@
 class Trade < ApplicationRecord
-  belongs_to :prefecture
-
-  belongs_to :buyer
+  belongs_to :user
+  belongs_to :item
+  has_one    :buyer
 end
