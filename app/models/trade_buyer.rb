@@ -12,14 +12,12 @@ class TradeBuyer
     validates :phone_number, format: { with: /\A\d{10,11}\z/ }
     validates :token
   end
-  
+
   validates :prefecture_id, numericality: { other_than: 1 }
 
   def save
     trade = Trade.create(user_id: user_id, item_id: item_id)
-    Buyer.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, address: address, building: building, phone_number: phone_number, trade_id: trade.id)
+    Buyer.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, address: address, building: building,
+                 phone_number: phone_number, trade_id: trade.id)
   end
-
-
-
 end

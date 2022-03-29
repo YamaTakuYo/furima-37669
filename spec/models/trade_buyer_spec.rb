@@ -4,7 +4,7 @@ RSpec.describe TradeBuyer, type: :model do
   before do
     user = FactoryBot.create(:user)
     item = FactoryBot.create(:item)
-    @trade_buyer = FactoryBot.build(:trade_buyer, user_id: user.id, item_id: item.id) 
+    @trade_buyer = FactoryBot.build(:trade_buyer, user_id: user.id, item_id: item.id)
     sleep 0.1
   end
 
@@ -58,22 +58,22 @@ RSpec.describe TradeBuyer, type: :model do
       it 'postal_codeはハイフンがないと保存できない' do
         @trade_buyer.postal_code = '1234567'
         @trade_buyer.valid?
-        expect(@trade_buyer.errors.full_messages).to include("Postal code is invalid")
+        expect(@trade_buyer.errors.full_messages).to include('Postal code is invalid')
       end
       it 'postal_codeは半角英数混合では保存できない' do
         @trade_buyer.postal_code = '123-abcd'
         @trade_buyer.valid?
-        expect(@trade_buyer.errors.full_messages).to include("Postal code is invalid")
-      end    
+        expect(@trade_buyer.errors.full_messages).to include('Postal code is invalid')
+      end
       it 'postal_codeは全角では保存できない' do
         @trade_buyer.postal_code = '１２３-４５６７'
         @trade_buyer.valid?
-        expect(@trade_buyer.errors.full_messages).to include("Postal code is invalid")
+        expect(@trade_buyer.errors.full_messages).to include('Postal code is invalid')
       end
       it 'prefecture_idは選択していないと保存できない' do
         @trade_buyer.prefecture_id = 1
         @trade_buyer.valid?
-        expect(@trade_buyer.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@trade_buyer.errors.full_messages).to include('Prefecture must be other than 1')
       end
       it 'phone_numberは12桁の数字では保存できない' do
         @trade_buyer.phone_number = '090123456789'
@@ -83,14 +83,14 @@ RSpec.describe TradeBuyer, type: :model do
       it 'phone_numberは半角英数混合では保存できない' do
         @trade_buyer.phone_number = 'abc123456789'
         @trade_buyer.valid?
-        expect(@trade_buyer.errors.full_messages).to include("Phone number is invalid")
+        expect(@trade_buyer.errors.full_messages).to include('Phone number is invalid')
       end
       it 'phone_numberは全角では保存できない' do
         @trade_buyer.phone_number = '０９０１２３４５６７８'
         @trade_buyer.valid?
-        expect(@trade_buyer.errors.full_messages).to include("Phone number is invalid")
+        expect(@trade_buyer.errors.full_messages).to include('Phone number is invalid')
       end
-      it "tokenが空では保存できない" do
+      it 'tokenが空では保存できない' do
         @trade_buyer.token = ' '
         @trade_buyer.valid?
         expect(@trade_buyer.errors.full_messages).to include("Token can't be blank")

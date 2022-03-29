@@ -2,11 +2,11 @@ class TradesController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create]
   before_action :set_item, only: [:index, :create]
   before_action :move_to_index, only: [:index, :create]
-  
+
   def index
     @trade_buyer = TradeBuyer.new
   end
-  
+
   def create
     @trade_buyer = TradeBuyer.new(trade_params)
     if @trade_buyer.valid?
@@ -21,7 +21,9 @@ class TradesController < ApplicationController
   private
 
   def trade_params
-    params.require(:trade_buyer).permit(:postal_code, :prefecture_id, :city, :address, :building, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+    params.require(:trade_buyer).permit(:postal_code, :prefecture_id, :city, :address, :building, :phone_number).merge(
+      user_id: current_user.id, item_id: params[:item_id], token: params[:token]
+    )
   end
 
   def set_item
@@ -33,7 +35,7 @@ class TradesController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,
       card: trade_params[:token],
