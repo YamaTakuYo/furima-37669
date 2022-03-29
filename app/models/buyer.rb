@@ -1,3 +1,3 @@
 class Buyer < ApplicationRecord
-  has_one :trade
+  belongs_to :trade
 end
