@@ -80,6 +80,11 @@ RSpec.describe TradeBuyer, type: :model do
         @trade_buyer.valid?
         expect(@trade_buyer.errors.full_messages).to include('Phone number is invalid')
       end
+      it 'phone_numberは9桁の数字では保存できない' do
+        @trade_buyer.phone_number = '090123456'
+        @trade_buyer.valid?
+        expect(@trade_buyer.errors.full_messages).to include('Phone number is invalid')
+      end
       it 'phone_numberは半角英数混合では保存できない' do
         @trade_buyer.phone_number = 'abc123456789'
         @trade_buyer.valid?
