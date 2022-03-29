@@ -90,6 +90,11 @@ RSpec.describe TradeBuyer, type: :model do
         @trade_buyer.valid?
         expect(@trade_buyer.errors.full_messages).to include("Phone number is invalid")
       end
+      it "tokenが空では保存できない" do
+        @trade_buyer.token = ' '
+        @trade_buyer.valid?
+        expect(@trade_buyer.errors.full_messages).to include("Token can't be blank")
+      end
     end
   end
 end
