@@ -5,6 +5,13 @@ class TradeController < ApplicationController
   
   def create
     @trade = Trade.new(trade_params)
+    if @trade.valid?
+      pay_item
+      @trade.save
+      redirect_to root_path
+    else
+      render :index
+    end
   end
 
   private
