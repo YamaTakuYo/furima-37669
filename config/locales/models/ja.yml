@@ -25,7 +25,7 @@ ja:
         delivery_cost_id: 送料
         delivery_date_id: 発送日
       trade:
-        postal_code: 商品名
+        postal_code: 郵便番号
         prefecture_id: 都道府県
         city: 市町村名
         address: 番地
@@ -33,7 +33,7 @@ ja:
         phone_number: 電話番号
         token: クレジットカード
       buyer:
-        postal_code: 商品名
+        postal_code: 郵便番号
         prefecture_id: 都道府県
         city: 市町村名
         address: 番地
@@ -42,7 +42,7 @@ ja:
   activemodel:
     attributes:
       trade:
-        postal_code: 商品名
+        postal_code: 郵便番号
         prefecture_id: 都道府県
         city: 市町村名
         address: 番地
@@ -50,7 +50,7 @@ ja:
         phone_number: 電話番号
         token: クレジットカード
       buyer:
-        postal_code: 商品名
+        postal_code: 郵便番号
         prefecture_id: 都道府県
         city: 市町村名
         address: 番地
